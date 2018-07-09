@@ -1,21 +1,21 @@
 <template>
   <div class="home">
     <ul class="row">
-      <li class="col-md-2">
+      <li class="col-md-2" @click="choice(2)">
         <img src="../assets/images/icon_01.png">
-        <span>铁路车辆滚动轴承轨边声学诊断系统</span>
+        <span>故障诊断系列</span>
       </li>
-      <li class="col-md-2">
+      <li class="col-md-2" @click="choice(2)">
         <img src="../assets/images/icon_02.png">
-        <span>铁路货车滚动轴承故障诊断设备</span>
+        <span>智能监测系列</span>
       </li>
-      <li class="col-md-2">
+      <li class="col-md-2" @click="choice(2)">
         <img src="../assets/images/icon_03.png">
-        <span>铁路专用测量设备</span>
+        <span>安全检测系列</span>
       </li>
-      <li class="col-md-2">
+      <li class="col-md-2" @click="choice(2)">
         <img src="../assets/images/icon_04.png">
-        <span>铁路专用工具及装置</span>
+        <span>实用设备系列</span>
       </li>
     </ul>
     <div class="product_modal flex-column">
@@ -24,39 +24,39 @@
         <div class="more">MORE+</div>
       </div>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3" @click="choice(2)">
           <figure>
-            <img src="../assets/images/TADS_1.jpg" class="img-fluid">
+            <img src="../assets/images/HGLZ-1FB.png" class="img-fluid">
             <figcaption>
-              <strong>&nbsp;&nbsp; 生命科学制药检测系统</strong>
-              内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍
+              <strong>&nbsp;&nbsp; 货车滚动轴承故障诊断仪（列检型）,</strong>
+              与配套的HGDZ-1B货车滚动轴承电动转轮器，专用于列检作业场进行现场快速轴承故障诊断
             </figcaption>
           </figure>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" @click="choice(2)">
           <figure>
-            <img src="../assets/images/TADS_1.jpg" class="img-fluid">
+            <img src="../assets/images/HGZZ-1CS.jpg" class="img-fluid">
             <figcaption>
-              <strong>&nbsp;&nbsp; 生命科学制药检测系统</strong>
-              内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍
+              <strong>&nbsp;&nbsp; 货车滚动轴承诊断仪（站修型）,</strong>
+              用于站修作业场诊断轴承故障， FPGA与计算机技术融为一体。不受结构与旋转动态振动噪声的影响，可以获取一系列的由轴承故障处产生的瞬时能量脉冲，传感器特殊的材料还能够有效隔离电磁干扰
             </figcaption>
           </figure>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" @click="choice(2)">
           <figure>
-            <img src="../assets/images/TADS_1.jpg" class="img-fluid">
+            <img src="../assets/images/HGDX-X-II.jpg" class="img-fluid">
             <figcaption>
-              <strong>&nbsp;&nbsp; 生命科学制药检测系统</strong>
-              内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍
+              <strong>&nbsp;&nbsp; 货车段修型滚动轴承检测装置,</strong>
+              货车车轴在不分解轴承时实施轴承故障诊断，转轮系统具有自动对位，固定轮对,转动轮对等功能，机械装置结构简单、紧凑、功率小、节能、可靠性高、方便使用和维护
             </figcaption>
           </figure>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3" @click="choice(2)">
           <figure>
             <img src="../assets/images/TADS_1.jpg" class="img-fluid" >
             <figcaption>
-              <strong>&nbsp;&nbsp; 生命科学制药检测系统</strong>
-              内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍
+              <strong>&nbsp;&nbsp; 铁路车辆滚动轴承轨旁声学诊断系统（TADS),</strong>
+              能自动识别通过的动车组（兼顾客车）轴箱轴承、货车滚动轴承的滚子、内圈和外圈的裂纹、剥离、磨损等故障。针对货车、动车组、客车运行中的滚动轴承进行早期故障诊断，及时进行处理，防止发生滚动轴承故障引起的行车事故。
             </figcaption>
           </figure>
         </div>
@@ -84,9 +84,8 @@
         <div>
           <img src="" alt="">
           <div>
-            <h3></h3>
+            <h3 class="text-center" style="color:#007bff;margin-top:160px;">暂无数据，敬请期待!</h3>
             <div>
-
             </div>
           </div>
         </div>
@@ -95,14 +94,16 @@
   </div>
 </template>
 <script>
+  import Hub from '../assets/event';
   export default {
     name: '',
     data() {
       return {}
     },
     methods:{
-      choice(index){
-        this.$emit('num',index)
+      choice(index,selector){
+       this.$emit('num',index);
+        Hub.$emit('change',selector)
       }
     }
   }
@@ -146,7 +147,8 @@
           color:#676767;
           img{
             width:100%;
-            height:100%;
+            height:200px;
+            border:1px solid #ccc;
           }
           figcaption{
             text-align: justify;

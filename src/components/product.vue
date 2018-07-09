@@ -110,15 +110,23 @@
 </template>
 
 <script>
+  import Hub from '../assets/event';
   export default {
     name: '',
     data() {
       return {}
     },
+    created(){
+      Hub.$on('change',(data)=>{
+        console.log(data);
+      });
+    },
     methods:{
       goAnchor(selector) {
         let anchor = this.$el.querySelector(selector);
-        document.documentElement.scrollTop = anchor.offsetTop;
+        $('html,body').animate({scrollTop:anchor.offsetTop},500);
+        // document.documentElement.scrollTop = anchor.offsetTop;
+        // console.log(anchor.offsetTop);
       }
     }
   }
